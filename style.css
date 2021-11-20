@@ -1,0 +1,139 @@
+
+
+body{
+    font-family: arial;
+    font-size: 16px;
+    margin: 0;
+    background: #ffffff;
+    color: rgb(209, 209, 209);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+/* glow */
+.audio_player{
+    /* Taille du lecteur */
+    width: 300px;
+   border: 2px solid rgba(93, 100, 107, 0.096);
+   border-radius: 20px;
+}
+/* glow */
+
+.player{
+    background-color: #e8e8e8;
+    padding: 15px;
+    border-radius: 20px;
+}
+
+.audio-title{
+    color: #fff;
+    font-weight: 400;
+    font-size: 18px;
+    display: block;
+    margin-bottom: 20px;
+}
+
+.player-middle-row{
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+
+}
+
+.player-middle-left span{
+    color: #0f00e4;
+    font-size: 20px;
+    display: inline-block;
+    margin-right: 20px;
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 50px;
+    border: 0.1px solid rgba(250, 250, 250, 0.459);
+    box-shadow: 0 0 8px 4px #00000f11;
+    transition: all 0.3s ease-out;
+
+    pointer-events: none;
+    opacity: 0.3;
+
+
+}
+
+.player-middle-left span.active{
+    pointer-events: auto ;    
+    opacity: 1;
+}
+
+.player-middle-right span{
+font-size: 22px;
+color: #908e8e;
+display: block;
+text-align: left;
+font-weight: 700;
+}
+
+.audioPlaylistWrap{
+    padding: 15px;
+    background: linear-gradient(top bottom, #025656,#002d2d);
+}
+
+.audio-list{
+    margin-bottom: 2px;
+    position: relative;
+}
+
+
+/* Reglages 1
+.audio-list-in{
+    background: #1f1b1b;
+    color: #fff;
+    font-size: 16px;
+    padding: 10px 15px;
+    position: relative;
+    transition: all 0.4s ease-out;
+} */
+
+.audio-list-in{
+    background: #f1f1f1;
+    color: #333335;;
+    font-size: 16px;
+    padding: 10px 15px;
+    /*! position: relative; */
+    transition: all 0.4s ease-out;
+}
+
+.aTrigger{
+    position: absolute;
+    left: 0;
+    top: 0;
+    cursor: pointer;
+    color: #fff;
+    z-index: 1;
+    width:  100%;
+    height: 100%;
+
+}
+
+.aTrigger i{
+
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    margin-top: -6px;
+    font-size: 12px;
+}
+/* Couleur radio dans la liste */
+a[data-active="active"] + .audio-list-in,
+a[data-active="pause"] + .audio-list-in{
+    background: #0090e4;
+}
+
+
+#audio-stop{
+    display:none;
+}

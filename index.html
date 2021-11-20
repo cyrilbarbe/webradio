@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="audio_player">
+        <audio id="audio">
+            <source  src="http://listen.radioking.com/radio/8916/stream/19088" id="audioSource" type="audio/mpeg">
+        </audio>
+        <div class="player">
+            <span class="audio-title" id="audioTitle">Title</span>
+            <div class="player-middle-row">
+                <div class="player-middle-left">
+                    <span class="active" id="audioPlayPause"><i class="fa fa-play"></i></span>
+                    <span  class="active" id="audioStop"><i class="fa fa-stop"></i></span>
+                </div>
+                <div class="player-middle-right">
+                    <!-- Mettre valeur numerique entre span a 0:0 si volonté d'avoir un timer -->
+                    <span id="duration"></span>
+                    <span id="durationUpdate"></span>
+                </div>
+            </div>
+        </div>
+        <div class="audioPlaylistWrap">
+            <!-- c'fest audio list dupliqué qui est la playlist de mes radios -->
+            <!-- chanson1 -->
+            <div class="audio-list">
+                <!-- l attribut  data acitve nous permettera de mettre la chason lu surlignée -->
+                <a class="aTrigger" data-active="" data-audio="http://listen.radioking.com/radio/8916/stream/19088">
+                    <i class='fa fa-play'></i></a>
+                <div class="audio-list-in">Tropiques FM</div>
+            </div>
+                    <!-- chanson2 -->
+            <div class="audio-list">
+                <a class="aTrigger" data-active="" data-audio="http://freedomice.streamakaci.com/freedom.mp3">
+                    <i class="fa fa-play"></i></a>
+                <div class="audio-list-in">Radio Freedom (Reunion)</div>
+            </div>
+                        <!-- chanson3 -->
+            <div class="audio-list">
+                <a class="aTrigger" data-active="" data-audio="http://cdn.nrjaudio.fm/adwz1/fr_an/55248/mp3_128.mp3">
+                    <i class="fa fa-play"></i></a>
+                <div class="audio-list-in">NRJ Guadeloupe</div>
+            </div>
+
+            
+
+
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
