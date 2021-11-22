@@ -1,9 +1,42 @@
+
+// Declaration Lecteur Radio et ses controlleurs
 var count = 0;
 var audio = document.getElementById('audio');
 var audioPlayPause = document.getElementById('audioPlayPause');
 var audioStop = document.getElementById('audio');
 let recent_volume= document.querySelector('#volume');
 let volume_show = document.querySelector('#volume_show');
+
+// Declaration pour le Visualiseur
+//Web audio API. On utiliser audio contexte
+
+const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+const audioElement = document.getElementById('audio');
+const canvasElement = document.querySelector('canvas');
+const canvasCtx = canvasElement.getContext('2d');
+
+const WIDTH = canvasElement.clientWidth;
+const HEIGHT = canvasElement.clientHeight;
+
+// source
+const source = audioCtx.createMediaElementSource(audioElement);
+//analyser node
+const analyser = audioCtx.createAnalyser();
+analyser.fftSize= 256;
+
+// on connecte la source a l'analyser
+source.connect(analyser);
+// destination c'est les speakers
+analyser.connect(audioCtx.destination);
+
+
+//variable pour le spectre de frequence audio
+const bufferLength = analyser.frequencyBinCount;
+const dataArray = new Uint8Array(bufferLength);
+
+
+
+
 
 
 // function pour lecture et pause
@@ -125,3 +158,28 @@ boiteToggle.addEventListener('click', () =>{
 })
 
 
+// Visualiseur audio
+/*Le but extraire les données audio pour les connecter a notre canvas en HTML  */
+// fonction de dessin sur canvas
+
+
+function draw() {
+    analyser.getByteFrequencyData(dataArray);
+    canvasCtx.fillStyle = 'rgb(255, 255, 255)';
+    canvasCtx.fillRect(0, 0, WIDTH, HEIGHT);
+
+    const barWidth = (WIDTH / bufferLength) * 2.5;
+    let barHeight;
+    let x = 0;
+
+    for(let i = 0; i < bufferLength; i++) {
+        barHeight = dataArray[i] / 2.8;
+        canvasCtx.fillStyle = `rgb(250,240, 255)`;
+        canvasCtx.fillRect(x, HEIGHT - barHeight, barWidth, barHeight);
+
+        x += barWidth + 1;
+    }
+
+    requestAnimationFrame(draw);
+}
+draw();
