@@ -10,16 +10,24 @@
 </head>
 <body>
     <div class="audio_player">
-        <audio id="audio">
+        <audio id="audio" >
             <source  src="http://listen.radioking.com/radio/8916/stream/19088" id="audioSource" type="audio/mpeg">
         </audio>
         <div class="player">
-            <span class="audio-title" id="audioTitle">Title</span>
+            <span class="audio-title" id="audioTitle">Radios Partenaires<i class="far fa-plus-square" ></i></span>
             <div class="player-middle-row">
                 <div class="player-middle-left">
                     <span class="active" id="audioPlayPause"><i class="fa fa-play"></i></span>
                     <span  class="active" id="audioStop"><i class="fa fa-stop"></i></span>
                 </div>
+                <!-- VOLUME -->
+                <div class="volume">
+                    <p id="volume_show"></p>
+                    <i aria-hidden="true" onclick="mute_sound()" id="volume_icon"></i>
+                    <!-- <i class="fa fa-volume-up"  aria-hidden="true" onclick="mute_sound()" id="volume_icon"></i> ceci est la version avec MUTE-->
+                    <!-- Input pour creer le controller de volume -->
+                    <input type="range" min="0" max="100" value="90" onchange="volume_change()" id="volume">  
+                 </div>
                 <div class="player-middle-right">
                     <!-- Mettre valeur numerique entre span a 0:0 si volonté d'avoir un timer -->
                     <span id="duration"></span>
@@ -27,7 +35,7 @@
                 </div>
             </div>
         </div>
-        <div class="audioPlaylistWrap">
+        <div class="audioPlaylistWrap"  id="audioPlaylistWrap"  >
             <!-- c'fest audio list dupliqué qui est la playlist de mes radios -->
             <!-- chanson1 -->
             <div class="audio-list">
@@ -51,10 +59,9 @@
 
             
 
-
         </div>
     </div>
-    
+
     <script src="script.js"></script>
 </body>
 </html>
