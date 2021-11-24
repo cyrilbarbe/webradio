@@ -9,17 +9,17 @@ body{
     align-items: center;
     justify-content: space-around;
 }
-/* glow */
+
+/* TAILLE DU LECTEUR */
 .audio_player{
-    /* Taille du lecteur */
     width: 280px;
    border: 2px solid rgba(93, 100, 107, 0.096);
    border-radius: 20px;
 }
-/* glow */
 
+/* Gérer couleur background */
 .player {
-    /* background-image: linear-gradient(-3deg, rgb(6, 0, 232) -139%, rgb(139, 58, 58)); */
+    /* background-image: linear-gradient(-3deg, rgb(8, 0, 232) -139%, rgba(139, 58, 58, 0.897)); */
     padding: 15px;
     border-radius: 20px;
     border: 8px #eaeaf7 solid;
@@ -57,6 +57,9 @@ body{
     text-align: center;
     text-shadow: 0px 1px 0px #00000017;
 }
+
+/* Visualiseur. Gérer le width et le height. Apres avoir regler la taille du lecteur. C'est a dire .audio_player */
+
 #canvas{
     display: grid;
     position: fixed;

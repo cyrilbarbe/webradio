@@ -3,6 +3,9 @@ var count = 0;
 var audio = document.getElementById('audio');
 var audioPlayPause = document.getElementById('audioPlayPause');
 var audioStop = document.getElementById('audio');
+//Volume
+    //Initialisation du volume de base
+audio.volume = 0.5;
 let recent_volume= document.querySelector('#volume');
 let volume_show = document.querySelector('#volume_show');
 
@@ -159,15 +162,16 @@ audioList.forEach(function(audioSingle, index){
 })
 
 //mute sound function
-function mute_sound(){
-	audio.volume = 0;
-	volume.value = 0;
-	volume_show.innerHTML = 0;
-}
+// function mute_sound(){
+// 	audio.volume = 0;
+// 	volume.value = 0;
+// 	volume_show.innerHTML = 0;
+// }
 
 
 // change volume
 function volume_change(){
+ 
 	volume_show.innerHTML = recent_volume.value;
 	audio.volume = recent_volume.value / 100;
 }
